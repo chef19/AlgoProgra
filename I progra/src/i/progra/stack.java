@@ -28,12 +28,41 @@ public class stack {
     
     public void pop(){
         if(top==null || size==0){
-            System.out.println("Esta vacia");
+            System.out.println("Pila vacia");
         }
+        Object retornar =top.getElemento();
+        top=top.getNext();
         size--;
-        System.out.println(top);
+        System.out.println(retornar);
     }
     
+    public void getTop(){
+        if(size==0){
+            System.out.println("Pila vacia");
+        }
+        else{
+            System.out.println(top.getElemento());
+        }
+    }
+    
+    public void getSize(){
+        System.out.println(size);
+    }
+    
+    public void isEmpty(){
+        if(top==null && size==0){
+            System.out.println(true);
+        }
+        else{
+            System.out.println(false);
+        }
+    }
+    
+    
+    public void clear(){
+        top=null;
+        size=0;
+    }
     
     
     
@@ -43,25 +72,25 @@ public class stack {
         a.push(336);
         a.push(337);
         a.pop();
-        
-        
-        
-        
+        a.getTop();
+        a.getSize();
+        a.push(5);
+        a.getSize();
+        a.push(43);
+        a.push(59);
+        a.pop();
+        a.pop();
+        a.getSize();
+        a.getTop();
+        a.clear();
+        a.isEmpty();
+        a.getTop();
+        a.push(7);
+        a.getTop();
+        a.isEmpty();
+        a.pop();
+        a.getTop();
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

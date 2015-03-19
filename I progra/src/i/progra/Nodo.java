@@ -5,31 +5,51 @@
  */
 package i.progra;
 
-import static javafx.beans.binding.Bindings.and;
-
 /**
  *
- * @author Kevin Matamoros
+ * @author kevin
  */
-public class Nodo <E> {
-    private Nodo left;
-    private Nodo right;
-    private E valor;
-    private boolean isleaft;
-    private Object nodo;
-    public boolean isleaf(){
-        if(this.right==null && this.left == null){
-        return false;
-        }
-        return false;
+public class Nodo {
+    public Object element;
+    public Nodo next;
+    
+    public Nodo(){
+        this.element=null;
+        this.next=null;
+    }
+    public Nodo(Object element){
+        this.element=element;
+        this.next=null;
+    }
+    public Nodo(Object element,Nodo next){
+        this.element=element;
+        this.next=next;
+    }
+    public Nodo getNext(){
+        return next;
+    }
+    public Object getElemento(){
+        return element;
+    }
+    public void setElemento(Object element){
+        this.element=element;
+    }
+    public void setNext(Nodo next){
+        this.next=next;
     }
     
-    
-    public boolean isroot(){return false;
-}
-    //public void setroot(boolean E.isroot()){}
-    public void add(){
-        
+    public static void main (String[] args){
+        Nodo a=new Nodo(12);
+        Nodo s=new Nodo(14);
+        Nodo d=new Nodo(15);
+        System.out.println(a.getElemento());
+        a.setElemento(13);
+        System.out.println(a.getElemento());
+        a.setNext(s);
+        System.out.println(s.getElemento()); 
+        s.setNext(d);
+        System.out.println(d.getElemento()); 
+        System.out.println(d.getNext()); 
     }
     
 }

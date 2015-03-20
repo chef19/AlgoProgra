@@ -60,20 +60,47 @@ public class Queu {
         }
     
     }
+    public int size(){
+        return size;
+    }
+    @SuppressWarnings("empty-statement")
+    public String toString(){
+        Nodo temp=front;
+        String Datos = "";
+        for(int c=0 ;c<size;c++){
+            if (front==null){
+                Datos+=String.valueOf(temp.getNext().getElemento());
+                temp=temp.getNext();
+            }
+            else{
+                Datos+=String.valueOf(temp.getNext().getElemento());
+                temp=temp.getNext();
+            }
+        }
+        System.out.println(Datos);
+        return Datos;
+        
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
     Queu asdf= new Queu();
-    asdf.Enqueu(12);
-    asdf.Enqueu(123);
-    asdf.Enqueu(1234);
-    asdf.Enqueu(12345);
+    asdf.Enqueu(1);
+    asdf.Enqueu(2);
+    asdf.Enqueu(3);
+    asdf.Enqueu(4);
+    asdf.Enqueu(5);
     asdf.first();
     System.out.println("\n"); 
     asdf.Dequeu();
-    asdf.first();   
+    asdf.first(); 
+    System.out.println("\n"); 
+    asdf.toString();
     
     }
     

@@ -9,7 +9,7 @@ package i.progra;
  *
  * @author Ricardo Araya
  */
-public class stack {
+public class stack <R>{
     public Nodo top;
     public int size;
     
@@ -20,13 +20,13 @@ public class stack {
         this.size=0;
     }
     
-    public void push(Object elemento){
+    public void push(R elemento){
         top=new Nodo(elemento,top);
         size++;
         System.out.println(elemento);
     }
     
-    public void pop(){
+    public R pop(){
         if(top==null || size==0){
             System.out.println("Pila vacia");
         }
@@ -34,63 +34,64 @@ public class stack {
         top=top.getNext();
         size--;
         System.out.println(retornar);
+        return (R) retornar;
     }
     
-    public void getTop(){
+    public R getTop(){
         if(size==0){
             System.out.println("Pila vacia");
+            return null;
         }
         else{
             System.out.println(top.getElemento());
+            return (R) top.getElemento();
         }
     }
     
-    public void getSize(){
+    public int getSize(){
         System.out.println(size);
+        return size;
     }
     
-    public void isEmpty(){
+    public boolean isEmpty(){
         if(top==null && size==0){
             System.out.println(true);
+            return true;
         }
         else{
             System.out.println(false);
+            return false;
         }
     }
-    
     
     public void clear(){
         top=null;
         size=0;
     }
     
-    
+    public String toString(){
+        String result = "Stack";
+        Nodo temp = top;
+        while(temp != null){
+            result+= "\n" + temp.getElemento();
+            temp = temp.getNext();
+        }
+        System.out.println(result);
+        return result;
+    }
+
     
     public static void main(String args[]){
         stack a=new stack();
-        a.push(335);
-        a.push(336);
-        a.push(337);
-        a.pop();
-        a.getTop();
-        a.getSize();
+        a.push(1);
+        a.push(2);
+        a.push(3);
+        a.push(4);
         a.push(5);
-        a.getSize();
-        a.push(43);
-        a.push(59);
+        a.toString();
         a.pop();
-        a.pop();
-        a.getSize();
+        a.toString();
         a.getTop();
-        a.clear();
-        a.isEmpty();
-        a.getTop();
-        a.push(7);
-        a.getTop();
-        a.isEmpty();
-        a.pop();
-        a.getTop();
-        
     }
     
 }
